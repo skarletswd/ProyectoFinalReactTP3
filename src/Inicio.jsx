@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Inicio() {
 
@@ -15,7 +16,7 @@ function Inicio() {
 
     return (
         <>
-            <div className="historial"><span title=""Ver Historial>📋</span></div>
+            <div className="historial"><Link to="/Historial" title="Ver Historial">📋</Link></div>
 
             <h1 className="center separador">SegurAr seguros inmobiliarios  🏡</h1>
 

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function Historial() {
     return (
         <>
@@ -24,7 +26,7 @@ function Historial() {
                 </table>
 
                 <section className="center separador">
-                    <button className="button button-outline">Volver</button>
+                    <Link to="/"><button className="button button-outline">Volver</button></Link>
                 </section>
 
             </div>
