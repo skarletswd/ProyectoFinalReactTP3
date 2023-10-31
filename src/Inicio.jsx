@@ -20,7 +20,6 @@ function Inicio() {
             <h1>SegurAr seguros inmobiliarios</h1>
 
             <div>
-
                 <h2>Ingrese los datos solicitados</h2>
 
                 <label htmlFor="tipo">Seleccione tipo de propiedad:</label>
@@ -48,8 +47,14 @@ function Inicio() {
                 <label htmlFor="metros">Ingrese metros cuadrados:</label>
                 <input type="number" required/>
 
-                <p>Precio: $ <span>0.00</span></p>
+                <section>
+                    <button>Cotizar</button>
+                </section>
 
+            </div>
+
+            <div>
+                <p>Precio: $ <span>0.00</span></p>
             </div>
 
         </>
