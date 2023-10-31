@@ -6,6 +6,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Inicio from "./Inicio"
 import NotFound from "./NotFound"
+import Historial from "./Historial"
 
 function App() {
 
@@ -15,6 +16,8 @@ function App() {
         <Routes>
 
           <Route path="/" Component={Inicio} />
+
+          <Route path="/historial" Component={Historial} />
 
           <Route path="*" Component={NotFound} />
 
