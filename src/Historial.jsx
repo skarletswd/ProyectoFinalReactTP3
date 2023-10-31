@@ -1,9 +1,9 @@
 function Historial() {
     return (
         <>
-            <h1>Historial de cotizaciones</h1>
+            <h1 className="center separador">Historial de cotizaciones</h1>
 
-            <div>
+            <div className="center div-cotizador">
                 <table>
                     <thead>
                         <th>Fecha de cotización</th>
@@ -23,8 +23,8 @@ function Historial() {
                     </tbody>
                 </table>
 
-                <section>
-                    <button>Volver</button>
+                <section className="center separador">
+                    <button className="button button-outline">Volver</button>
                 </section>
 
             </div>
