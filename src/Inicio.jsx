@@ -15,12 +15,12 @@ function Inicio() {
 
     return (
         <>
-            <div>Historial</div>
+            <div className="historial"><span title=""Ver Historial>📋</span></div>
 
-            <h1>SegurAr seguros inmobiliarios</h1>
+            <h1 className="center separador">SegurAr seguros inmobiliarios  🏡</h1>
 
-            <div>
-                <h2>Ingrese los datos solicitados</h2>
+            <div className="center div-cotizador">
+                <h2 center separador>Ingrese los datos solicitados</h2>
 
                 <label htmlFor="tipo">Seleccione tipo de propiedad:</label>
 
@@ -47,16 +47,15 @@ function Inicio() {
                 <label htmlFor="metros">Ingrese metros cuadrados:</label>
                 <input type="number" required/>
 
-                <section>
-                    <button>Cotizar</button>
+                <section className="center separador">
+                    <button className="button button-outline">Cotizar</button>
                 </section>
 
             </div>
 
-            <div>
-                <p>Precio: $ <span>0.00</span></p>
+            <div className="center separador">
+                <p className="importe">Precio: $ <span>0.00</span></p>
             </div>
-
         </>
     )
 }
