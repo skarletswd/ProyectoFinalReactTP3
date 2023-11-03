@@ -1,7 +1,14 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { AppContext } from "./AppContext";
 
 function Inicio() {
+
+    const {propiedades} = useContext(AppContext);
+
+    const {ubicaciones} = useContext(AppContext);
+
+    console.log(propiedades);
 
     const [values, setValues] = useState({
         tipo:"",
@@ -23,26 +30,32 @@ function Inicio() {
             <div className="center div-cotizador">
                 <h2 center separador>Ingrese los datos solicitados</h2>
 
-                <label htmlFor="tipo">Seleccione tipo de propiedad:</label>
+                <label htmlFor="todo">Seleccione tipo de propiedad:</label>
 
-                <select>
+                <select name="todo" id="todo">
                     type=""
                     id="tipo"
                     name="tipo"
                     value={values.tipo}
                     onChange={handleChange}
                     <option selected disabled>...</option>
+                    {propiedades.map((propiedad) => (
+                        <option key={propiedad.id} value={propiedad.id}>{propiedad.tipo}</option>
+                    ))}
                 </select>
 
-                <label htmlFor="ubicacion">Seleccione ubicacion de propiedad:</label>
+                <label htmlFor="todo">Seleccione ubicacion de propiedad:</label>
 
-                <select>
+                <select name="todo" id="todo">
                     type=""
                     id="ubicacion"
                     name="ubicacion"
                     value={values.ubicacion}
                     onChange={handleChange}
                     <option selected disabled>...</option>
+                    {ubicaciones.map((ubicacion) => (
+                        <option key={ubicacion.id} value={ubicacion.id}>{ubicacion.tipo}</option>
+                    ))}
                 </select>
 
                 <label htmlFor="metros">Ingrese metros cuadrados:</label>
