@@ -4,11 +4,14 @@ import { AppContext } from "./AppContext";
 
 function Inicio() {
 
-    const {propiedades} = useContext(AppContext);
+    //todo lo que quiero tener del contexto en el componente
+    const {propiedades, ubicaciones, form, setForm} = useContext(AppContext);
 
-    const {ubicaciones} = useContext(AppContext);
-
-    console.log(propiedades);
+    // me trae los arrarys
+    // console.log(propiedades);
+    // console.log(ubicaciones);
+    console.log(form);
+    
 
     const [values, setValues] = useState({
         tipo:"",
@@ -17,9 +20,18 @@ function Inicio() {
     });
 
     const handleChange = (event) => {
-        console.log(event.target.name, event.target.value);
-        setValues({...values, [event.target.name]: event.target.value});
+
+        //me trae lo seleccionado
+        console.log(event.target.value);
+
+        //Componentes= App.Provider: genera un estado con todas las "propiedades" "ubicaiones" "input" y en Context.Provider una funcion dispatchSetState() para cambiar el estado
+        setForm({ ...form, todo: event.target.value });
+
+        // console.log(event.target.name, event.target.value);
+        // setValues({...values, [event.target.name]: event.target.value});
     }
+
+    // console.log(event.target.name);
 
     return (
         <>
@@ -28,17 +40,16 @@ function Inicio() {
             <h1 className="center separador">SegurAr seguros inmobiliarios  🏡</h1>
 
             <div className="center div-cotizador">
-                <h2 center separador>Ingrese los datos solicitados</h2>
+                <h2 className="center separador">Ingrese los datos solicitados</h2>
 
                 <label htmlFor="todo">Seleccione tipo de propiedad:</label>
 
-                <select name="todo" id="todo">
+                <select name="todo" id="todo" onChange={handleChange}>
                     type=""
                     id="tipo"
                     name="tipo"
                     value={values.tipo}
-                    onChange={handleChange}
-                    <option selected disabled>...</option>
+                    <option>...</option>
                     {propiedades.map((propiedad) => (
                         <option key={propiedad.id} value={propiedad.id}>{propiedad.tipo}</option>
                     ))}
@@ -46,20 +57,19 @@ function Inicio() {
 
                 <label htmlFor="todo">Seleccione ubicacion de propiedad:</label>
 
-                <select name="todo" id="todo">
+                <select name="todo" id="todo" onChange={handleChange}>
                     type=""
                     id="ubicacion"
                     name="ubicacion"
                     value={values.ubicacion}
-                    onChange={handleChange}
-                    <option selected disabled>...</option>
+                    <option>...</option>
                     {ubicaciones.map((ubicacion) => (
                         <option key={ubicacion.id} value={ubicacion.id}>{ubicacion.tipo}</option>
                     ))}
                 </select>
 
                 <label htmlFor="metros">Ingrese metros cuadrados:</label>
-                <input type="number" required/>
+                <input type="number" onChange={handleChange} required/>
 
                 <section className="center separador">
                     <button className="button button-outline">Cotizar</button>
