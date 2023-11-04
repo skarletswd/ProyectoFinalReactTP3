@@ -15,7 +15,7 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-
+          
           <Route path="/" Component={Inicio} />
 
           <Route path="/historial" Component={Historial} />

@@ -7,9 +7,9 @@ export const AppProvider = ({children}) => {
     //setea el array
     const [propiedades, setPropiedades,] = useState([]);
 
-
     //setea el objeto
     const [form, setForm] = useState({});
+    
 
     // console.log(propiedades);
 
@@ -28,7 +28,7 @@ export const AppProvider = ({children}) => {
           .then((response) => response.json())
           .then((todos) => setUbicaciones(todos));
       }, []);
-    
+
     //dentro del contexto tengo los arrays, objetos y funciones  
     const data ={propiedades, ubicaciones, form, setForm};
 

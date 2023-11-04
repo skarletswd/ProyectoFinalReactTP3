@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AppContext } from "./AppContext";
+import Header from "./Header";
 
 function Inicio() {
 
@@ -22,14 +23,14 @@ function Inicio() {
     const handleChange = (event) => {
 
         //me trae lo seleccionado
-        console.log(event.target.value);
+        // console.log(event.target.value);
 
         //Componentes= App.Provider: genera un estado con todas las "propiedades" "ubicaiones" "input" y en Context.Provider una funcion dispatchSetState() para cambiar el estado
-        setForm({ ...form, todo: event.target.value });
+        setForm({ ...form, [event.target.name]: event.target.value });
 
         // console.log(event.target.name, event.target.value);
         // setValues({...values, [event.target.name]: event.target.value});
-    }
+    };
 
     // console.log(event.target.name);
 
@@ -37,7 +38,7 @@ function Inicio() {
         <>
             <div className="historial"><Link to="/Historial" title="Ver Historial">📋</Link></div>
 
-            <h1 className="center separador">SegurAr seguros inmobiliarios  🏡</h1>
+            <Header/>
 
             <div className="center div-cotizador">
                 <h2 className="center separador">Ingrese los datos solicitados</h2>
@@ -59,8 +60,8 @@ function Inicio() {
 
                 <select name="todo" id="todo" onChange={handleChange}>
                     type=""
-                    id="ubicacion"
-                    name="ubicacion"
+                    id="tipo"
+                    name="tipo"
                     value={values.ubicacion}
                     <option>...</option>
                     {ubicaciones.map((ubicacion) => (
