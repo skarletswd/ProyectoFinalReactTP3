@@ -6,14 +6,14 @@ import Header from "./Header";
 function Inicio() {
 
     //todo lo que quiero tener del contexto en el componente
-    const {propiedades, ubicaciones, form, setForm} = useContext(AppContext);
+    const {propiedades, ubicaciones, opciones, setOpciones} = useContext(AppContext);
 
-    // me trae los arrarys
+    // me trae los arrarys funciona bien
     // console.log(propiedades);
     // console.log(ubicaciones);
-    console.log(form);
+    // console.log(opciones);
     
-
+    //inicia vacío funciona bien
     const [values, setValues] = useState({
         tipo:"",
         ubicacion:"",
@@ -22,17 +22,16 @@ function Inicio() {
 
     const handleChange = (event) => {
 
-        //me trae lo seleccionado
+        //me trae lo seleccionado funciona bien
         // console.log(event.target.value);
 
-        //Componentes= App.Provider: genera un estado con todas las "propiedades" "ubicaiones" "input" y en Context.Provider una funcion dispatchSetState() para cambiar el estado
-        setForm({ ...form, [event.target.name]: event.target.value });
+        //Componentes= App.Provider: genera un estado con todas las "propiedades" "ubicaciones" "input" y en Context.Provider una funcion dispatchSetState() para cambiar el estado
+        const {name, value} = event.target;
+        setOpciones({ ...opciones, [name]: value });
 
-        // console.log(event.target.name, event.target.value);
-        // setValues({...values, [event.target.name]: event.target.value});
+        //AYUDA PROFE!!!! aunque pongo "...opciones" NO ME GUARDA LO SELECCIONADO ANTERIORMENTE, ME PONE LO ULTIMO QUE SELECCIONE :( no puedo avanzar con el dispatch si no me guarda
+    
     };
-
-    // console.log(event.target.name);
 
     return (
         <>
@@ -43,12 +42,12 @@ function Inicio() {
             <div className="center div-cotizador">
                 <h2 className="center separador">Ingrese los datos solicitados</h2>
 
-                <label htmlFor="todo">Seleccione tipo de propiedad:</label>
+                <label htmlFor="propiedades">Seleccione tipo de propiedad:</label>
 
-                <select name="todo" id="todo" onChange={handleChange}>
+                <select className="propiedades" id="propiedades" onChange={handleChange}>
                     type=""
-                    id="tipo"
-                    name="tipo"
+                    id="propiedad"
+                    name="propiedad"
                     value={values.tipo}
                     <option>...</option>
                     {propiedades.map((propiedad) => (
@@ -56,12 +55,12 @@ function Inicio() {
                     ))}
                 </select>
 
-                <label htmlFor="todo">Seleccione ubicacion de propiedad:</label>
+                <label htmlFor="ubicaciones">Seleccione ubicacion de propiedad:</label>
 
-                <select name="todo" id="todo" onChange={handleChange}>
+                <select className="ubicaciones" id="ubicaciones" onChange={handleChange}>
                     type=""
-                    id="tipo"
-                    name="tipo"
+                    id="ubicacion"
+                    name="ubicacion"
                     value={values.ubicacion}
                     <option>...</option>
                     {ubicaciones.map((ubicacion) => (
@@ -70,7 +69,7 @@ function Inicio() {
                 </select>
 
                 <label htmlFor="metros">Ingrese metros cuadrados:</label>
-                <input type="number" onChange={handleChange} required/>
+                <input className="metros" id="metros" type="number" onChange={handleChange} required/>
 
                 <section className="center separador">
                     <button className="button button-outline">Cotizar</button>
