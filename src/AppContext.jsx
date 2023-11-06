@@ -8,7 +8,11 @@ export const AppProvider = ({children}) => {
     const [propiedades, setPropiedades] = useState([]);
 
     //setea el objeto
-    const [opciones,setOpciones] = useState({});
+    const [opciones,setOpciones] = useState({
+        tipo:"",
+        ubicacion:"",
+        metros:"",
+    });
 
 
     // console.log(propiedades);

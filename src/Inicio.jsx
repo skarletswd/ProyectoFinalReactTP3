@@ -48,7 +48,7 @@ function Inicio() {
                     type=""
                     id="propiedad"
                     name="propiedad"
-                    value={values.tipo}
+                    value={opciones.tipo}
                     <option>...</option>
                     {propiedades.map((propiedad) => (
                         <option key={propiedad.id} value={propiedad.id}>{propiedad.tipo}</option>
@@ -61,7 +61,7 @@ function Inicio() {
                     type=""
                     id="ubicacion"
                     name="ubicacion"
-                    value={values.ubicacion}
+                    value={opciones.ubicacion}
                     <option>...</option>
                     {ubicaciones.map((ubicacion) => (
                         <option key={ubicacion.id} value={ubicacion.id}>{ubicacion.tipo}</option>
