@@ -12,13 +12,6 @@ function Inicio() {
     // console.log(propiedades);
     // console.log(ubicaciones);
     // console.log(opciones);
-    
-    //inicia vacío funciona bien
-    const [values, setValues] = useState({
-        tipo:"",
-        ubicacion:"",
-        metros:"",
-    });
 
     const handleChange = (event) => {
 
