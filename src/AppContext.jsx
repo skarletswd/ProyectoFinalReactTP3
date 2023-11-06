@@ -8,14 +8,7 @@ export const AppProvider = ({children}) => {
     const [propiedades, setPropiedades] = useState([]);
 
     //setea el objeto
-    const [opciones,setOpciones] = useState({
-        // tipo:"",
-        // ubicacion:"",
-        // metros:"",
-    });
-
-
-    // console.log(propiedades);
+    const [opciones, setOpciones] = useState({});
 
     useEffect(() => {
         fetch("https://653831aaa543859d1bb14d53.mockapi.io/propiedades")
@@ -24,10 +17,8 @@ export const AppProvider = ({children}) => {
     }, []);
 
     const [ubicaciones, setUbicaciones] = useState([]);
-
-    //   console.log(ubicaciones);
     
-      useEffect(() => {
+    useEffect(() => {
         fetch("https://653831aaa543859d1bb14d53.mockapi.io/ubicaciones")
           .then((response) => response.json())
           .then((ubicaciones) => setUbicaciones(ubicaciones));
@@ -36,5 +27,7 @@ export const AppProvider = ({children}) => {
     //dentro del contexto tengo los arrays, objetos y funciones  
     const data ={propiedades, ubicaciones, opciones, setOpciones};
 
-    return <AppContext.Provider value={data}>{children}</AppContext.Provider>;
+    return <AppContext.Provider value={data}>
+      {children}
+      </AppContext.Provider>;
 };
