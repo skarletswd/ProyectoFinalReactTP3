@@ -9,9 +9,9 @@ export const AppProvider = ({children}) => {
 
     //setea el objeto
     const [opciones,setOpciones] = useState({
-        tipo:"",
-        ubicacion:"",
-        metros:"",
+        // tipo:"",
+        // ubicacion:"",
+        // metros:"",
     });
 
 
