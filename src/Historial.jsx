@@ -1,6 +1,35 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 function Historial() {
+
+    const [historialCotizaciones, setHistorialCotizaciones] = useState([]);
+    const historial = JSON.parse(
+      window.localStorage.getItem("historial") || "[]"
+    );
+  
+    useEffect(() => {
+      const cargarHistorial = () => {
+        const historialGuardado =
+          JSON.parse(localStorage.getItem("historialCotizaciones")) || [];
+        setHistorialCotizaciones(historialGuardado);
+      };
+  
+      cargarHistorial();
+    }, []);
+  
+    const retornoTablaHTML = (fila) => {
+      return (
+        <tr key={fila.fecha}>
+          <td>{fila.fecha}</td>
+          <td>{fila.propiedad}</td>
+          <td>{fila.ubicacion}</td>
+          <td>{fila.metros2}</td>
+          <td>$ {fila.cotizacion}</td>
+        </tr>
+      );
+    };
+
     return (
         <>
             <h1 className="center separador">Historial de cotizaciones</h1>
@@ -15,13 +44,7 @@ function Historial() {
                         <th>Póliza mensual</th>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>...</td>
-                            <td>...</td>
-                            <td>...</td>
-                            <td>...</td>
-                            <td>...</td>
-                        </tr>
+                    {historial.map((fila) => retornoTablaHTML(fila))}
                     </tbody>
                 </table>
 
