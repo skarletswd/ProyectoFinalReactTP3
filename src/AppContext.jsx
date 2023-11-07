@@ -26,7 +26,7 @@ export const AppProvider = ({children}) => {
 
     const handleInput = useCallback(
       ({ target: { value } }) => {
-        setMetros({ ...opciones, metros: Number(value) });
+        setOpciones({ ...opciones, metros: Number(value) });
       },
       [opciones, metros]);
 
@@ -51,8 +51,8 @@ export const AppProvider = ({children}) => {
         ...historial,
         {
           fecha: new Date().toLocaleString(),
-          propiedad: opciones.propiedades.tipo,
-          ubicacion: opciones.ubicaciones.tipo,
+          propiedad: opciones.propiedad.tipo,
+          ubicacion: opciones.ubicacion.tipo,
           metros2: opciones.metros,
           cotizacion: resultado.toFixed(2),
         },
