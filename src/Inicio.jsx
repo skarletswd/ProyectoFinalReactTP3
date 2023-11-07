@@ -6,17 +6,8 @@ import Header from "./Header";
 function Inicio() {
 
     //todo lo que quiero tener del contexto en el componente
-    const {propiedades, ubicaciones, opciones, setOpciones} = useContext(AppContext);
+    const {propiedades, ubicaciones, handleSubmit, cotizacion, handleChange, handleInput} = useContext(AppContext);
 
-    const handleChange = (event) => {
-
-        //me trae lo seleccionado funciona bien
-        // console.log(event.target.value);
-
-        //Componentes= App.Provider: genera un estado con todas las "propiedades" "ubicaciones" "input" y en Context.Provider una funcion dispatchSetState() para cambiar el estado
-        const {name, value} = event.target;
-        setOpciones({ ...opciones, [name]: value });
-    };
 
     return (
         <>
@@ -68,11 +59,13 @@ function Inicio() {
                     Ingrese metros cuadrados:
                 </label>
 
+                <input className="metros" id="metros2" type="number" onChange={handleInput} min="25" required/>
 
-                <input className="metros" id="metros" type="number" onChange={handleChange} required/>
 
                 <section className="center separador">
-                    <button className="button button-outline">Cotizar</button>
+                    <button className="button button-outline" type="button" onClick={handleSubmit}>
+                        Cotizar
+                    </button>
                 </section>
 
             </div>
@@ -80,7 +73,7 @@ function Inicio() {
 
             <div className="center separador">
                 <p className="importe">
-                    Precio: $ <span>0.00</span>
+                    Precio: $ <span id="valorPoliza">{cotizacion || '0.00'}</span>
                 </p>
             </div>
         </>
