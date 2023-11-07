@@ -33,7 +33,7 @@ export const AppProvider = ({children}) => {
 
     const handleChange = useCallback(
         ({ target: { value, name } }) => {
-          const array = name === "propiedades" ? propiedades : ubicaciones;
+          const array = name === "propiedad" ? propiedades : ubicaciones;
           const item = array.find(({ id }) => id == value);
           setOpciones({ ...opciones, [name]: item });
         },

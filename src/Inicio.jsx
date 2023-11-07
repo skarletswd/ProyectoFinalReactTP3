@@ -12,8 +12,8 @@ function Inicio() {
     return (
         <>
             <div className="historial">
-                <Link to="/Historial" title="Ver Historial">
-                    📋
+                <Link to="/Historial">
+                    <span >📋</span>
                 </Link>
             </div>
 
